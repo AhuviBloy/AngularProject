@@ -1,6 +1,6 @@
 import { Component, Input, Output } from '@angular/core';
 import { Student } from '../../../models/student';
-import { EventEmitter } from 'stream';
+import { EventEmitter } from '@angular/core';
 
 
 
@@ -15,7 +15,7 @@ export class StudentDetailsComponent {
 
 
  @Input() curentStudent!:Student | null;
- @Output() setStudent:EventEmitter<any>=new EventEmitter<any>();
+ @Output() setStudent :EventEmitter<any>=new EventEmitter<any>();
 
  student:Student | undefined;
 

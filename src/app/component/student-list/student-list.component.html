@@ -5,7 +5,7 @@
         <h1>{{student.Name}}</h1>   
         <button (click)="setShowComponent(student.Id)">edit</button>
             @if(showComponent == student.Id){
-                <app-student-details [curentStudent]="student"></app-student-details>
+                <app-student-details (setStudent)="setStudentInList($event)" [curentStudent]="student"></app-student-details>
                 }
              @if(showComponent == student.Id && student.isActive==false)   {
                 <p>The student is not active</p>
@@ -15,7 +15,7 @@
     <br>
     <button (click)="setShowComponent(-1)">add</button>
     @if(showComponent == -1){
-        <app-student-details  (setStudent)="setStudentInList($event)" [curentStudent]="null"></app-student-details>
+        <app-student-details  (setStudent)="setStudentInList($event)" [curentStudent]="emptyStudent"></app-student-details>
     }
     
 
