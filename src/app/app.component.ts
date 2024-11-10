@@ -6,7 +6,7 @@ import { StudentListComponent } from './component/student-list/student-list.comp
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet,StudentListComponent],
+  imports: [StudentListComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
