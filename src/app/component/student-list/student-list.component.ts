@@ -1,17 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, viewChild } from '@angular/core';
 import { StudentDetailsComponent } from '../student-details/student-details.component';
 import { Student } from '../../../models/student';
+import { InformationPopupComponent } from '../information-popup/information-popup.component';
 
 
 
 @Component({
   selector: 'app-student-list',
   standalone: true,
-  imports: [StudentDetailsComponent],
+  imports: [StudentDetailsComponent,InformationPopupComponent],
   templateUrl: './student-list.component.html',
   styleUrl: './student-list.component.css'
 })
 export class StudentListComponent {
+
   currentListStudent: Student[] = [
     new Student(1, "Rivka", ["LLM", "AI"], false),
     new Student(2, "Sara", ["LLM", "AI"], true),
@@ -36,4 +38,8 @@ export class StudentListComponent {
     }
   }
 
+  @viewChild(InformationPopupComponent) info
+  sendPopup(){
+
+  }
 }
