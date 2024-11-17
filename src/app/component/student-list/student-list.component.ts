@@ -1,4 +1,4 @@
-import { Component, viewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { StudentDetailsComponent } from '../student-details/student-details.component';
 import { Student } from '../../../models/student';
 import { InformationPopupComponent } from '../information-popup/information-popup.component';
@@ -38,8 +38,8 @@ export class StudentListComponent {
     }
   }
 
-  @viewChild(InformationPopupComponent) info
+  @ViewChild(InformationPopupComponent) info !:InformationPopupComponent;
   sendPopup(){
-
+     this.info.showPop("האם אתה בטוח שברצונך למחוק תלמיד זה?")
   }
 }
