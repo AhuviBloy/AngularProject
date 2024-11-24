@@ -1,10 +1,13 @@
 
+    <ng-container *ngTemplateOutlet="studentList"></ng-container>
 
+<!-- <ng-container *ngTemplateOutlet="studentList"></ng-container> -->
     @for(student of currentListStudent ; track student.Id){
         <div>
         <h1>{{student.Name}}</h1>   
         <button (click)="setShowComponent(student.Id)">edit</button>
-            @if(showComponent == student.Id){
+        <button (click)="setCloseComponent()">close</button>
+            @if(showComponent == student.Id && isOpen){
                 <app-student-details (setStudent)="setStudentInList($event)" [curentStudent]="student"></app-student-details>
                 }
              @if(showComponent == student.Id && student.isActive==false)   {
@@ -13,12 +16,20 @@
         </div> 
     }
     <br>
+    <ng-container *ngTemplateOutlet="studentList"></ng-container>
     <button (click)="setShowComponent(-1)">add</button>
+    <!-- <button (click)="setCloseComponent()">close</button> -->
     @if(showComponent == -1){
         <app-student-details  (setStudent)="setStudentInList($event)" [curentStudent]="emptyStudent"></app-student-details>
     }
 <br>
 <br>
+
+
 <button (click)="sendPopup()">delete</button>
 <app-information-popup></app-information-popup>
 
+
+<ng-template #studentList>
+    <h1>-------student list--------</h1>
+</ng-template>

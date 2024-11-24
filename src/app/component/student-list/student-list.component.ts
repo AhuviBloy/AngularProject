@@ -2,13 +2,15 @@ import { Component, ViewChild } from '@angular/core';
 import { StudentDetailsComponent } from '../student-details/student-details.component';
 import { Student } from '../../../models/student';
 import { InformationPopupComponent } from '../information-popup/information-popup.component';
+import { NgTemplateOutlet } from '@angular/common';
+
 
 
 
 @Component({
   selector: 'app-student-list',
   standalone: true,
-  imports: [StudentDetailsComponent,InformationPopupComponent],
+  imports: [StudentDetailsComponent,InformationPopupComponent,NgTemplateOutlet],
   templateUrl: './student-list.component.html',
   styleUrl: './student-list.component.css'
 })
@@ -20,10 +22,15 @@ export class StudentListComponent {
     new Student(3, "Lea", ["LLM", "AI"], true),
   ]
   showComponent: any;
-  emptyStudent:Student = new Student(0,"",[],false)
+  emptyStudent:Student = new Student(0,"",[],false);
+  isOpen=true;
 
   setShowComponent(studentId : number){
     this.showComponent = studentId;
+    this.isOpen=true;
+  }
+  setCloseComponent(){
+    this.isOpen=false
   }
 
   setStudentInList(updatedStudent: Student) {
