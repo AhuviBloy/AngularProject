@@ -18,6 +18,7 @@ export class StudentDetailsComponent {
  @Output() setStudent :EventEmitter<any>=new EventEmitter<any>();
 
  student:Student | undefined;
+ isOpen=true;
 
 
  saveStudent(id:string,name:string){
@@ -25,4 +26,7 @@ export class StudentDetailsComponent {
    this.setStudent.emit(this.student)
  }
 
+ setCloseComponent(){
+  this.isOpen=false
+}
 }

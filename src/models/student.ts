@@ -3,6 +3,7 @@ export class Student{
         public Id:number,
         public Name:string,
         public Courses:string[],
-        public isActive:boolean
+        public isActive:boolean,
+        public isPayed:boolean=false
     ){}
 }
