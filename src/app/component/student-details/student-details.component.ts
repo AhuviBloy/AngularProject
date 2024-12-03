@@ -1,13 +1,14 @@
 import { Component, Input, Output } from '@angular/core';
 import { Student } from '../../../models/student';
 import { EventEmitter } from '@angular/core';
+import { CoursesListComponent } from '../courses-list/courses-list.component';
 
 
 
 @Component({
   selector: 'app-student-details',
   standalone: true,
-  imports: [],
+  imports: [CoursesListComponent],
   templateUrl: './student-details.component.html',
   styleUrl: './student-details.component.css'
 })

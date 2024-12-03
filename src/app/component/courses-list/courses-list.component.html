@@ -1,0 +1,17 @@
+<!-- @for(course of courseList; track course.IdCourse){
+<p appMyHighlight [highlightColor]="'lightgreen'">
+    @if(curentStudent?.isPayed){
+        <input type="checkbox" [value]=""/>
+    }
+    {{course.NameCourse}}
+</p>
+} -->
+
+@for(course of courseList; track course.IdCourse){
+    <p appColorBtn [courseType]="course.IdCourse" >
+        @if(curentStudent?.isPayed){
+            <input type="checkbox" [value]=""/>
+        }
+        {{course.NameCourse}}
+    </p>
+    }

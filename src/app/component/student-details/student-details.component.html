@@ -2,6 +2,7 @@
 <div class="form-style">
     Id:<input #id [value]="curentStudent?.Id"> <br>
     FirstName: <input #name [value]="curentStudent?.Name"> <br>
+    <app-courses-list [curentStudent]="curentStudent"></app-courses-list>
 </div>
 
 <button (click)="saveStudent(id.value,name.value)">save</button>

@@ -18,9 +18,9 @@ export class StudentListComponent {
 
   currentListStudent: Student[] = [
     new Student(1, "Sara", ["MATH", "AI"], false,true),
-    new Student(2, "Rivka", ["LLM", "ENGLISH"], true),
-    new Student(2, "Rachel", ["Math", "ENGLISH"], true),
-    new Student(3, "Lea", ["C++", "AI"], true),
+    new Student(2, "Rivka", ["LLM", "ENGLISH"], true,false),
+    new Student(3, "Rachel", ["Math", "ENGLISH"], true,true),
+    new Student(4, "Lea", ["C++", "AI"], true,true),
   ]
   showComponent: any;
   emptyStudent:Student = new Student(0,"",[],false);
