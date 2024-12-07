@@ -8,7 +8,7 @@ import { MyHighlightDirective } from '../../../directives/my-highlight.directive
 @Component({
   selector: 'app-courses-list',
   standalone: true,
-  imports: [ColorBtnDirective, MyHighlightDirective],
+  imports: [ColorBtnDirective],
   templateUrl: './courses-list.component.html',
   styleUrl: './courses-list.component.css'
 })

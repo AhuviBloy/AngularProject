@@ -30,6 +30,7 @@ export class StudentListComponent {
     this.showComponent = studentId;
     this.isOpen=true;
   }
+  
   setCloseComponent(){
     this.isOpen=false
   }

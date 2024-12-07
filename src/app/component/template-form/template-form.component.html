@@ -1,0 +1,35 @@
+<form (ngSubmit)="onSubmit()">
+    <div>
+        <label for="id">id number:</label>
+        @if(isNew){
+        <input type="text" id="id" [(ngModel)]="teacher.Id" name="id" />
+        }
+        @else {
+        {{this.teacher.Id}}
+        }
+    </div>
+
+    <div>
+        <label for="name">name:</label>
+        <input type="text" id="name" [(ngModel)]="teacher.Name" name="name" />
+    </div>
+
+    <div>classes:
+        <button (click)="addClass()">+</button>
+        <br>
+        @for (class of teacher.Classes; track teacher; let i =$index) {
+
+        <input type="text" [(ngModel)]="teacher.Classes[i]" name="class_{{i}}">
+        <button (click)="removeClass(i)">-</button>
+        <br>
+
+        }
+
+    </div>
+
+
+    <div>
+        <button type="submit">שלח</button>
+    </div>
+
+</form>

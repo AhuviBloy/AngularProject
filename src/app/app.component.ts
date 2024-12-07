@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { StudentListComponent } from './component/student-list/student-list.component';
+import { TemplateFormComponent } from './component/template-form/template-form.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [StudentListComponent],
+  imports: [StudentListComponent,TemplateFormComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
