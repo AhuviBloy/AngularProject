@@ -2,11 +2,13 @@ import { Component, Input, input, OnInit } from '@angular/core';
 import { Teacher } from '../../../interfaces/teacher';
 import { FormsModule } from '@angular/forms';
 import { TeacherServiceService } from '../../../services/teacher-service.service';
+import { CommonModule } from '@angular/common';
+import { log } from 'node:console';
 
 @Component({
   selector: 'app-template-form',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule,CommonModule],
   templateUrl: './template-form.component.html',
   styleUrl: './template-form.component.css'
 })
@@ -15,12 +17,14 @@ export class TemplateFormComponent implements OnInit{
   @Input()
   teacher: Teacher = { Id: 0, Name: "", Classes: [] }
   isNew: boolean = true
+  teacherList:Teacher[]=this.teacherService.getTeachers()
 
   constructor(private teacherService: TeacherServiceService) { }
 
   ngOnInit() {
     if(this.teacher.Id!=0)
       this.isNew=false
+    console.log(this.teacherList)
   }
   onSubmit() {
     const index = this.teacherService.getTeachers().findIndex((t) => t.Id == this.teacher.Id)

@@ -1,6 +1,8 @@
+<ng-container *ngTemplateOutlet="teachersForm"></ng-container>
+
 <form (ngSubmit)="onSubmit()">
     <div>
-        <label for="id">id number:</label>
+        <label for="id">Id number:</label>
         @if(isNew){
         <input type="text" id="id" [(ngModel)]="teacher.Id" name="id" />
         }
@@ -10,26 +12,41 @@
     </div>
 
     <div>
-        <label for="name">name:</label>
+        <label for="name">Name:</label>
         <input type="text" id="name" [(ngModel)]="teacher.Name" name="name" />
     </div>
 
-    <div>classes:
+    <div>Classes:
         <button (click)="addClass()">+</button>
         <br>
         @for (class of teacher.Classes; track teacher; let i =$index) {
-
         <input type="text" [(ngModel)]="teacher.Classes[i]" name="class_{{i}}">
         <button (click)="removeClass(i)">-</button>
         <br>
-
         }
 
     </div>
-
 
     <div>
         <button type="submit">שלח</button>
     </div>
 
 </form>
+
+<br>
+
+<div>
+    @for (teacher of this.teacherList; track teacher) {
+         {{teacher | json}}
+         <br>
+    }
+   
+</div>
+<br>
+
+<ng-container *ngTemplateOutlet="teachersForm"></ng-container>
+
+
+<ng-template #teachersForm >
+    <h1 style="background-color: #c2fc4d;">------Teachers Form------</h1>
+</ng-template>

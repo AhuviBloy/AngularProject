@@ -10,9 +10,9 @@ export class TeacherServiceService {
   constructor() { }
 
   public teachers: Teacher[] = [
-    { Id: 1, Name: 'Tova', Classes: ["א1", "א2"] },
-    { Id: 2, Name: 'Sara', Classes: ["א1", "א2"] },
-    { Id: 3, Name: 'Yehudit', Classes: ["א1", "א2"] }
+    { Id: 1, Name: 'Tova', Classes: ["A1","A2"] },
+    { Id: 2, Name: 'Sara', Classes: ["B1","B2"] },
+    { Id: 3, Name: 'Yehudit', Classes: ["C1","C2"] }
   ]
 
   getTeachers(): Teacher[] {
@@ -24,8 +24,12 @@ export class TeacherServiceService {
   }
 
   updateTeacher(teacher: Teacher): void {
-    let teacherToUpdate = this.teachers.find((t) => t.Id == teacher.Id)
-    teacherToUpdate = teacher
+    this.teachers.forEach(t=>{
+      if(t.Id==teacher.Id){
+        t.Name=teacher.Name;
+        t.Classes=teacher.Classes
+      }
+  })
   }
 
   deleteTeacher(teacher: Teacher): void {

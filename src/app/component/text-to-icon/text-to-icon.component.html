@@ -1,0 +1,10 @@
+<ng-container *ngTemplateOutlet="iconsTitle"></ng-container>
+
+<input type="text" [(ngModel)]="text">
+<p>{{text | icon}}</p>
+
+<ng-container *ngTemplateOutlet="iconsTitle"></ng-container>
+
+<ng-template #iconsTitle>
+    <h1 style="background-color: aqua;">Convert To Icon</h1>
+</ng-template>

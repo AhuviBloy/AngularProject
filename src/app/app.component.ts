@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { StudentListComponent } from './component/student-list/student-list.component';
 import { TemplateFormComponent } from './component/template-form/template-form.component';
+import { TextToIconComponent } from "./component/text-to-icon/text-to-icon.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [StudentListComponent,TemplateFormComponent],
+  imports: [StudentListComponent, TemplateFormComponent, TextToIconComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
