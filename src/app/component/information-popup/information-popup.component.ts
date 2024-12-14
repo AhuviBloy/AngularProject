@@ -5,13 +5,12 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './information-popup.component.html',
-  styleUrl: './information-popup.component.css'
+  styleUrl: './information-popup.component.css',
 })
 export class InformationPopupComponent {
-
-  msg: string = "";
+  msg: string = '';
 
   showPop(text: string) {
-    this.msg = text
+    this.msg = text;
   }
 }

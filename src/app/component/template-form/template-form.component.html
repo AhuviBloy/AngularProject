@@ -1,34 +1,46 @@
 <ng-container *ngTemplateOutlet="teachersForm"></ng-container>
 
-<form (ngSubmit)="onSubmit()">
+<form #myForm="ngForm" (ngSubmit)="onSubmit()">
     <div>
         <label for="id">Id number:</label>
         @if(isNew){
-        <input type="text" id="id" [(ngModel)]="teacher.Id" name="id" />
+        <input type="text" id="id" [(ngModel)]="teacher.Id" name="id" #teacherId="ngModel" required minlength="3" />
+        <!-- <pre>{{teacherId.errors | json}}</pre>
+        <pre>{{teacherId.touched | json}}</pre> -->
+
+        @if(teacherId.touched && teacherId.hasError('required')){
+            <small class="error-invalid">Id is required.</small>
+        }
+        @if(teacherId.hasError('minlength')){
+            <small class="error-invalid">Id must be at least 3 characters long.</small>
+        }
         }
         @else {
-        {{this.teacher.Id}}
+            {{this.teacher.Id}}
         }
+
     </div>
+
 
     <div>
         <label for="name">Name:</label>
         <input type="text" id="name" [(ngModel)]="teacher.Name" name="name" />
     </div>
 
+
     <div>Classes:
-        <button (click)="addClass()">+</button>
+        <button type="button" (click)="addClass()">+</button>
         <br>
         @for (class of teacher.Classes; track teacher; let i =$index) {
         <input type="text" [(ngModel)]="teacher.Classes[i]" name="class_{{i}}">
-        <button (click)="removeClass(i)">-</button>
+        <button type="button" (click)="removeClass(i)">-</button>
         <br>
         }
 
     </div>
 
     <div>
-        <button type="submit">שלח</button>
+        <button type="submit" [disabled]="myForm.invalid">שלח</button>
     </div>
 
 </form>
@@ -37,16 +49,16 @@
 
 <div>
     @for (teacher of this.teacherList; track teacher) {
-         {{teacher | json}}
-         <br>
+    {{teacher | json}}
+    <br>
     }
-   
+
 </div>
 <br>
 
 <ng-container *ngTemplateOutlet="teachersForm"></ng-container>
 
 
-<ng-template #teachersForm >
+<ng-template #teachersForm>
     <h1 style="background-color: #c2fc4d;">------Teachers Form------</h1>
 </ng-template>

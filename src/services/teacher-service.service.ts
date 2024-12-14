@@ -10,9 +10,9 @@ export class TeacherServiceService {
   constructor() { }
 
   public teachers: Teacher[] = [
-    { Id: 1, Name: 'Tova', Classes: ["A1","A2"] },
-    { Id: 2, Name: 'Sara', Classes: ["B1","B2"] },
-    { Id: 3, Name: 'Yehudit', Classes: ["C1","C2"] }
+    { Id: 111, Name: 'Tova', Classes: ["A1","A2"] },
+    { Id: 222, Name: 'Sara', Classes: ["B1","B2"] },
+    { Id: 333, Name: 'Yehudit', Classes: ["C1","C2"] }
   ]
 
   getTeachers(): Teacher[] {
